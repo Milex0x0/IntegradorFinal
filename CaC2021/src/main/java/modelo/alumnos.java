@@ -8,7 +8,7 @@ package modelo;
  *
  * @author Ursula
  */
-public class Alumnos 
+public class alumnos 
 {
 
     public int getId() {
@@ -48,7 +48,7 @@ public class Alumnos
     private String email ;        
 
 
-    public Alumnos ( int id,String nombre,String apellido, String email)
+    public alumnos ( int id,String nombre,String apellido, String email)
     { 
         this.id=id;
         this.nombre=nombre;

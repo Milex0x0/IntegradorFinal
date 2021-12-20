@@ -6,6 +6,8 @@ package cofig;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -29,6 +31,25 @@ public class Conexion
             System.out.println(e.toString());
         }
         return conexion;
+    }
+    public static void main(String[] args) throws SQLException 
+    {
+        Connection conexion = null;
+        Conexion con= new Conexion();
+        conexion = con.getConnection();
+        PreparedStatement ps;
+        ResultSet rs;
+        ps = conexion.prepareStatement ("SELECT * FROM alumnos");
+            rs = ps.executeQuery ();
+            while (rs.next())
+            {
+                int id = rs.getInt("id");
+                String nombre = rs.getString("nombre");
+                String apellido = rs.getString("apellido");
+                String email = rs.getString ("email");
+            System.out.println(" id: "+id+" Nombre: "+nombre+" apellido: "+apellido+" Email: "+email);
+                 
+            }
     }
 }
 
